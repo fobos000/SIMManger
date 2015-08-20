@@ -60,22 +60,25 @@
 
 - (void)startObservingSIM
 {
-    dispatch_queue_t background_queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
-    dispatch_async(background_queue, ^{
-        while (YES) {
-            SIMStatus currentSimStatus = [self currentSimStatus];
-            if (self.cachedSIMStatus != currentSimStatus) {
-                if (self.simStatusChangedCallback) {
-                    dispatch_sync(dispatch_get_main_queue(), ^{
-                        self.simStatusChangedCallback(currentSimStatus);
-                    });
-                    self.cachedSIMStatus = currentSimStatus;
-                }
-            }
-            
-            sleep(1);
+    NSDate *now = [[NSDate alloc] init];
+    NSTimer *timer = [[NSTimer alloc] initWithFireDate:now
+                                              interval:1.0
+                                                target:self
+                                              selector:@selector(checkSIMStatus)
+                                              userInfo:nil repeats:YES];
+    
+    [[NSRunLoop currentRunLoop] addTimer:timer forMode:NSRunLoopCommonModes];
+}
+
+- (void)checkSIMStatus
+{
+    SIMStatus currentSimStatus = [self currentSimStatus];
+    if (self.cachedSIMStatus != currentSimStatus) {
+        if (self.simStatusChangedCallback) {
+            self.simStatusChangedCallback(currentSimStatus);
+            self.cachedSIMStatus = currentSimStatus;
         }
-    });
+    }
 }
 
 @end
