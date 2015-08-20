@@ -7,8 +7,11 @@
 //
 
 #import "ViewController.h"
+#import "SIMManager.h"
+
 
 @interface ViewController ()
+
 
 @end
 
@@ -17,11 +20,32 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
+    
+    
+    [[SIMManager sharedManager] setSimStatusChangedCallback:^(SIMStatus simStatus) {
+        switch (simStatus) {
+            case SIMStatusInserted:
+                NSLog(@"SIM was inserted");
+                break;
+                
+            case SIMStatusRemoved:
+                NSLog(@"SIM was removed");
+                break;
+                
+            default:
+                break;
+        }
+    }];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (IBAction)testTapped:(id)sender {
+    NSLog(@"isSimAvailable %@", @([[SIMManager sharedManager] isSimAvailable]));
+    NSLog(@"isSimInserted %@", @([[SIMManager sharedManager] isSimInserted]));
 }
 
 @end

@@ -14,6 +14,8 @@
 		3FF182E01B8497AA00628F0F /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3FF182DF1B8497AA00628F0F /* Images.xcassets */; };
 		3FF182E31B8497AA00628F0F /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3FF182E11B8497AA00628F0F /* LaunchScreen.xib */; };
 		3FF182EF1B8497AA00628F0F /* SIMTestTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FF182EE1B8497AA00628F0F /* SIMTestTests.m */; };
+		3FF182F91B84988200628F0F /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3FF182F81B84988200628F0F /* CoreTelephony.framework */; };
+		3FF182FF1B84D7B900628F0F /* SIMManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FF182FE1B84D7B900628F0F /* SIMManager.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +42,9 @@
 		3FF182E81B8497AA00628F0F /* SIMTestTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SIMTestTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3FF182ED1B8497AA00628F0F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3FF182EE1B8497AA00628F0F /* SIMTestTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SIMTestTests.m; sourceTree = "<group>"; };
+		3FF182F81B84988200628F0F /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
+		3FF182FD1B84D7B900628F0F /* SIMManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SIMManager.h; sourceTree = "<group>"; };
+		3FF182FE1B84D7B900628F0F /* SIMManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SIMManager.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -47,6 +52,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3FF182F91B84988200628F0F /* CoreTelephony.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -63,6 +69,7 @@
 		3FF182C61B8497AA00628F0F = {
 			isa = PBXGroup;
 			children = (
+				3FF182F81B84988200628F0F /* CoreTelephony.framework */,
 				3FF182D11B8497AA00628F0F /* SIMTest */,
 				3FF182EB1B8497AA00628F0F /* SIMTestTests */,
 				3FF182D01B8497AA00628F0F /* Products */,
@@ -89,6 +96,8 @@
 				3FF182DF1B8497AA00628F0F /* Images.xcassets */,
 				3FF182E11B8497AA00628F0F /* LaunchScreen.xib */,
 				3FF182D21B8497AA00628F0F /* Supporting Files */,
+				3FF182FD1B84D7B900628F0F /* SIMManager.h */,
+				3FF182FE1B84D7B900628F0F /* SIMManager.m */,
 			);
 			path = SIMTest;
 			sourceTree = "<group>";
@@ -222,6 +231,7 @@
 				3FF182DB1B8497AA00628F0F /* ViewController.m in Sources */,
 				3FF182D81B8497AA00628F0F /* AppDelegate.m in Sources */,
 				3FF182D51B8497AA00628F0F /* main.m in Sources */,
+				3FF182FF1B84D7B900628F0F /* SIMManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
